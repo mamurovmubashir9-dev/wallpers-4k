@@ -1,0 +1,87 @@
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+class Main {
+
+    public static void main(String[] args) throws IOException {
+        URL url = new URL("https://api.pinterest.com/v5/pins/{pin_id}?pin_id={pin_id}");
+        HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+        httpConn.setRequestMethod("GET");
+
+        httpConn.setRequestProperty("Authorization", "Bearer <access_token>");
+        httpConn.setRequestProperty("Content-Type", "application/json");
+        httpConn.setRequestProperty("Accept", "application/json");
+
+        httpConn.setDoOutput(true);
+
+        InputStream responseStream = httpConn.getResponseCode() / 100 == 2
+                ? httpConn.getInputStream()
+                : httpConn.getErrorStream();
+        Scanner s = new Scanner(responseStream).useDelimiter("\A");
+        String response = s.hasNext() ? s.next() : "";
+        System.out.println(response);
+    }
+}
+        {
+      "alt_text": "string",
+      "board_id": "string",
+      "board_owner": {
+            "username": "string"
+      },
+      "board_section_id": "string",
+      "created_at": "string",
+      "creative_type": "string",
+      "description": "string",
+      "dominant_color": "string",
+      "has_been_promoted": "false",
+      "id": "string",
+      "is_owner": "false",
+      "is_standard": "false",
+      "link": "string",
+      "media": {
+            "media_type": "string",
+            "images": {
+                  "150x150": {
+                        "width": 150,
+                        "height": 150,
+                        "url": "https://i.pinimg.com/150x150/0d/f6/f1/0df6f1f0bfe7aaca849c1bbc3607a34b.jpg"
+                  },
+                  "400x300": {
+                        "width": 400,
+                        "height": 300,
+                        "url": "https://i.pinimg.com/400x300/0d/f6/f1/0df6f1f0bfe7aaca849c1bbc3607a34b.jpg"
+                  },
+                  "600x": {
+                        "width": 600,
+                        "height": 600,
+                        "url": "https://i.pinimg.com/600x/0d/f6/f1/0df6f1f0bfe7aaca849c1bbc3607a34b.jpg"
+                  },
+                  "1200x": {
+                        "width": 1200,
+                        "height": 1200,
+                        "url": "https://i.pinimg.com/1200x/0d/f6/f1/0df6f1f0bfe7aaca849c1bbc3607a34b.jpg"
+                  }
+            }
+      },
+      "parent_pin_id": "string",
+      "pin_metrics": {
+            "90d": {
+                  "pin_click": 7,
+                  "impression": 2,
+                  "clickthrough": 3
+            },
+            "lifetime_metrics": {
+                  "pin_click": 7,
+                  "impression": 2,
+                  "clickthrough": 3,
+                  "reaction": 10,
+                  "comment": 2
+            }
+      },
+      "title": "string"
+}
