@@ -364,7 +364,28 @@ class GameNotifier extends StateNotifier<GameState> {
       options: ["O'ynash", "O'qish", "Yeyish", "Uxlash"],
       correctAnswer: 1,
     ),
+    QuizQuestion(
+      question: "Suv necha gradusda qaynaydi?",
+      options: ["100°C", "50°C", "0°C", "25°C"],
+      correctAnswer: 0,
+    ),
+    QuizQuestion(
+      question: "Temir necha gradusda eriydi?",
+      options: ["1538°C", "100°C", "200°C", "500°C"],
+      correctAnswer: 1538,
+    ),
+    QuizQuestion(     
+      question: "O'bekiston qachon mustaqillikga erishgan?",  
+      options: ["1991", "1992", "1989", "1988"],
+      correctAnswer: 1991,
+    ),
+    QuizQuestion(
+      question: "16+16=...?",
+      options: ["32", "40", "48", "56"],
+      correctAnswer: 32,
+    ),
   ];
+  
 
   List<QuizQuestion> getRandomQuestions() {
     final shuffled = List<QuizQuestion>.from(allQuestions)..shuffle();
@@ -383,7 +404,7 @@ class GameNotifier extends StateNotifier<GameState> {
       'price': 250,
     },
     {
-      'url': 'https://images.unsplash.com/photo-1581337204873-ef36aa186caa?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFuZHNjYXBlJTIwcGFpbnRpbmd8ZW58MHx8MHx8fDA%3D',
+      'url': 'https://images.unsplash.com/photo-1581337204873-ef36aa186caa?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFuZHNjYXBlJTIwcGFpbnRpbmd8ZW58MHx8MHx8fDA%3D',  
       'name': 'Landscape Art',
       'price': 300,
     },
@@ -416,8 +437,8 @@ class GameNotifier extends StateNotifier<GameState> {
       'url': 'https://w0.peakpx.com/wallpaper/195/521/HD-wallpaper-bismillah-green-beautiful-black-islam-muslim.jpg',
       'name': 'Bismillah Green',
       'price': 600,
-    },
-  ];
+    },      //Assalomu alaykum hurmatli ustoz man sizi yaxshi ko'raman bu ilova siz uchun ustooooooooooooz  
+  ];  
 
   void addCoins(int amount) {
     if (state.coins + amount >= 0) {
@@ -459,7 +480,7 @@ class WallpaperNotifier extends StateNotifier<WallpaperState> {
       name: 'Barchasi',
       query: 'curated',
       icon: Icons.grid_view,
-      color: Colors.blue,
+      color: Colors.blue,//
     ),
     CategoryModel(
       name: 'Tabiat',
@@ -647,7 +668,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Wallpapers 4K',
-      theme: ThemeData(
+      theme: ThemeData( 
         brightness: Brightness.light,
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: Colors.grey[50],
@@ -680,13 +701,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       themeMode: ThemeMode.system,
-      home: const SplashScreen(),
+      home: const SplashScreen(),   
     );
   }
 }
 
 // ==================== SPLASH SCREEN ====================
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatefulWidget {   
   const SplashScreen({super.key});
 
   @override
